@@ -18,7 +18,7 @@ h3 {
     line-height: 1;
 }
 
-#far-sb {
+#cf7sl-sb {
     padding-top: 50px;
     width: 300px;
     float: left;
@@ -29,19 +29,19 @@ h3 {
     float: left;
 }
 
-#far-items {
+#cf7sl-items {
     width: 750px;
     float: left;
 }
 
-#far-items ul {
+#cf7sl-items ul {
     padding: 10px 0;
     clear: both;
     width: 750px;
     display: block;
 }
 
-#far-items li {
+#cf7sl-items li {
     width: 700px;
     display: block;
     float: left;
@@ -66,7 +66,7 @@ h3 {
 	background-image: #f5f5f5;
 }
 
-#far-items li {
+#cf7sl-items li {
     background-image: url(draggable.png);
     background-repeat: no-repeat;
     background-position: 5px 45px;
@@ -75,7 +75,7 @@ h3 {
     border: 1px solid #d5d5d5;
 }
 
-#far-items textarea {
+#cf7sl-items textarea {
     width: 200px;
     min-height: 115px;
     margin-right: 5px;
@@ -103,7 +103,7 @@ h3 {
     display: inline-block;
 }
 
-#far-items select {
+#cf7sl-items select {
     width: 200px;
 }
 

@@ -8,14 +8,14 @@ function addFormField() {
 	var row ="<li id ='row" + id + "'>" +
 				"<div style='float: left;'>" +
 					"<div style='float: left;'>" +
-					"<label for='farfind" + id + "'>Form ID:</label>" +
+					"<label for='cf7slfind" + id + "'>Form ID:</label>" +
 					"<br />" +
-					"<select  name='farfind["+ id +"]' id='farfind" + id + "'>" ;
+					"<select  name='cf7slfind["+ id +"]' id='cf7slfind" + id + "'>" ;
 
 
 
 	for(var i=0;i<formNamesArray.length;i++){
-    	row += "<option name='farfind["+ id +"]' id='farfind"+ id +"' value='"+ formNamesArray[i]['ID']+ "'>" + formNamesArray[i]['post_title']+  "</option>";
+    	row += "<option name='cf7slfind["+ id +"]' id='cf7slfind"+ id +"' value='"+ formNamesArray[i]['ID']+ "'>" + formNamesArray[i]['post_title']+  "</option>";
     }
 
 
@@ -32,9 +32,9 @@ function addFormField() {
 
 
 					"<div style='float: left;'>" +
-					"<label for='farreplace" + id + "'>Replace With:</label>" +
+					"<label for='cf7slreplace" + id + "'>Replace With:</label>" +
 					"<br />" +
-					"<textarea class='left' name='farreplace["+ id +"]' id='farreplace" + id + "'></textarea>" +
+					"<textarea class='left' name='cf7slreplace["+ id +"]' id='cf7slreplace" + id + "'></textarea>" +
 					"</div>" +
 					"<br />"+
 
@@ -43,7 +43,7 @@ function addFormField() {
 
 
 
-		jQuery("#far_itemlist").append(row);
+		jQuery("#cf7sl_itemlist").append(row);
 
 		id = (id - 1) + 2;
 		document.getElementById("id").value = id;
@@ -56,5 +56,5 @@ function removeFormField(id) {
 }
 
 jQuery(function() {
-	jQuery( "#far_itemlist" ).sortable();
+	jQuery( "#cf7sl_itemlist" ).sortable();
 });
