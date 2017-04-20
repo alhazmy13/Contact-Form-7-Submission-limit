@@ -1,28 +1,43 @@
-=== Contact Form 7 Submission limit ===
+=== Contact form 7 submission limit ===
 Contributors: Abdullah Alhazmy
-Tags: contact, form, contact form 7, Submission, limit
+Site: http://alhazmy13.net
+Tags: contact, form, contact form 7, Submission, limit 
 Requires at least: 4.0
 Tested up to: 4.7.3
 License: GPLv2 or later
 
-Contact Form 7 Submission limit.
-
-== Description ==
-
-
 
 == Installation ==
 
-1. Upload the contact-form-7-submission-limit folder to the '/wp-content/plugins/' directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. The contact-form-7-submission-limit are in the Tools sidebar menu.
-4. Click on the Add on the admin page to add new rule.
+1- Upload the contact-form-7-submission-limit folder to the '/wp-content/plugins/' directory
+2- Activate the plugin through the 'Plugins' menu in WordPress
+3- The contact-form-7-submission-limit are in the Tools sidebar menu.
+4- Click on the Add on the admin page to add new rule.
 
-== Frequently Asked Questions ==
+== Note ==
+This plugin requires two plugins contact-form-7 and CFDB please make sure that you have it on your site.
 
 
-== Screenshots ==
+== Description ==
 
+This plugin will replace `contact form 7` with any HTML code when the number of submissions goes above your limit.
+
+1- Select any form from a drop-down list.
+2- Enter your limit (if the number are above or equal the total number of submissions then the for will be hidden).
+3- Enter any HTML code that you want to replace the form with it.
+4- Click on update setting button.
+
+
+== Tips ==
+
+1- The status of your form will automatically show after you select the number of limits.
+2- If you want unlimited submission then you can remove the rule or just type -1 in the limit field.
+3- Not seeing your changes? Turn off your cache!
+
+
+= Where is data stored? =
+
+In an array in the wp_options table. Just one record regardless of the number of your rules.
 
 
 == Changelog ==
