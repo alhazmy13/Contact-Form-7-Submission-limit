@@ -7,7 +7,7 @@
 * License: `GPLv2 or later`
 
 # Download 
-last version you can found it in this ![link](https://github.com/alhazmy13/Contact-Form-7-Submission-limit/releases)
+last version you can found it in this [link](https://github.com/alhazmy13/Contact-Form-7-Submission-limit/releases)
 # Installation
 
 1- Upload the contact-form-7-submission-limit folder to the `/wp-content/plugins/` directory
@@ -16,7 +16,7 @@ last version you can found it in this ![link](https://github.com/alhazmy13/Conta
 4- Click on the Add on the admin page to add new rule.
 
 # Note 
-This plugin requires two plugins ![contact-form-7](https://wordpress.org/plugins/contact-form-7/) and ![CFDB](https://github.com/mdsimpson/contact-form-7-to-database-extension/releases) please make sure that you have it on your site.
+This plugin requires two plugins [contact-form-7](https://wordpress.org/plugins/contact-form-7/) and [CFDB](https://github.com/mdsimpson/contact-form-7-to-database-extension/releases) please make sure that you have it on your site.
 
 # Description 
 This plugin will replace `contact form 7` with any HTML code when the number of submissions goes above your limit.
