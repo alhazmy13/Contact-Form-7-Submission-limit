@@ -1,7 +1,7 @@
 function addFormField() {
 
 	var id = jQuery('#id').val();
-	var formList = jQuery('#test').val();
+	var formList = jQuery('#form_list').val();
 	var formNamesArray = jQuery.parseJSON(formList);
 		
 		
@@ -26,7 +26,7 @@ function addFormField() {
 					"<div style='float: left;'>" +
 					"<label for='limit" + id + "'>Limit:</label>" +
 					"<br />" +
-					"<input class='textbox' type='number'  name='limit["+ id +"]' id='limit" + id + "'></input>" +
+					"<input class='textbox' type='number'  name='limit["+ id +"]' id='limit" + id + "' value='-1'></input>" +
 					"</div>" +
 					"<br />"+
 
