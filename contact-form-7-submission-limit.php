@@ -341,7 +341,7 @@ function is_submition_above_limit($form_id, $limit)
 function get_total_submitions()
 {
     global $wpdb;
-    $total_submitions = $wpdb->get_results('SELECT ' . $wpdb->prefix . 'posts.`ID`,form_name,count(DISTINCT `submit_time`) as count FROM  ' . $wpdb->prefix . 'cf7dbplugin_submits join ' . $wpdb->prefix . 'posts where ' . $wpdb->prefix . 'cf7dbplugin_submits.`form_name` = ' . $wpdb->prefix . 'posts.`post_title` group by form_name');
+    $total_submitions = $wpdb->get_results('SELECT ' . $wpdb->prefix . 'posts.`ID`,   form_post_id,count(DISTINCT `form_date`)   as count FROM  ' . $wpdb->prefix . 'db7_forms join ' . $wpdb->prefix . 'posts where ' . $wpdb->prefix . 'db7_forms.`form_post_id` = ' . $wpdb->prefix . 'posts.`ID` group by form_id');
     if ($total_submitions) {
         return $total_submitions;
     } else {
