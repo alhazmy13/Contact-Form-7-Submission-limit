@@ -8,14 +8,14 @@ function addFormField() {
 	var row ="<li id ='row" + id + "'>" +
 				"<div style='float: left;'>" +
 					"<div style='float: left;'>" +
-					"<label for='cf7slfind" + id + "'>Form ID:</label>" +
+					"<label for='cf7slformid" + id + "'>Form ID:</label>" +
 					"<br />" +
-					"<select  name='cf7slfind["+ id +"]' id='cf7slfind" + id + "'>" ;
+					"<select  name='cf7slformid["+ id +"]' id='cf7slformid" + id + "'>" ;
 
 
 
 	for(var i=0;i<formNamesArray.length;i++){
-    	row += "<option name='cf7slfind["+ id +"]' id='cf7slfind"+ id +"' value='"+ formNamesArray[i]['ID']+ "'>" + formNamesArray[i]['post_title']+  "</option>";
+    	row += "<option name='cf7slformid["+ id +"]' id='cf7slformid"+ id +"' value='"+ formNamesArray[i]['ID']+ "'>" + formNamesArray[i]['post_title']+  "</option>";
     }
 
 

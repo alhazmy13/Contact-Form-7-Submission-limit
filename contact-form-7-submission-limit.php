@@ -50,25 +50,29 @@ function cf7sl_add_pages()
     add_action("admin_print_scripts-$page", "cf7sl_admin_scripts");
 }
 
+
+/*
+* Main Function 
+*/
 function cf7sl_options_page()
 {
     if (isset($_POST['setup-update'])) {
         $_POST = stripslashes_deep($_POST);
 
         // If atleast one find has been submitted
-        if (isset($_POST['cf7slfind']) && is_array($_POST['cf7slfind'])) {
-            foreach ($_POST['cf7slfind'] as $key => $find) {
+        if (isset($_POST['cf7slformid']) && is_array($_POST['cf7slformid'])) {
+            foreach ($_POST['cf7slformid'] as $key => $find) {
 
                 // If empty ones have been submitted we get rid of the extra data submitted if any.
                 if (empty($find)) {
-                    unset($_POST['cf7slfind'][$key]);
+                    unset($_POST['cf7slformid'][$key]);
                     unset($_POST['cf7sllimit'][$key]);
                     unset($_POST['cf7slreplace'][$key]);
                 }
 
                 // Convert line feeds on non-regex only
                 if (!isset($_POST['cf7slregex'][$key])) {
-                    $_POST['cf7slfind'][$key] = str_replace("\r\n", "\n", $find);
+                    $_POST['cf7slformid'][$key] = str_replace("\r\n", "\n", $find);
                 }
             }
         }
@@ -78,7 +82,7 @@ function cf7sl_options_page()
         unset($_POST['submit-import']);
 
         // Delete the option if there are no settings. Keeps the database clean if they aren't using it and uninstalled.
-        if (empty($_POST['cf7slfind'])) {
+        if (empty($_POST['cf7slformid'])) {
             delete_option('cf7sl_plugin_settings');
         } else {
             update_option('cf7sl_plugin_settings', $_POST);
@@ -105,9 +109,9 @@ function cf7sl_options_page()
             <?php
 $i = 0;
     // If there are any finds already set
-    if (isset($cf7sl_settings['cf7slfind']) && is_array($cf7sl_settings['cf7slfind'])) {
+    if (isset($cf7sl_settings['cf7slformid']) && is_array($cf7sl_settings['cf7slformid'])) {
         $i = 1;
-        foreach ($cf7sl_settings['cf7slfind'] as $key => $find) {
+        foreach ($cf7sl_settings['cf7slformid'] as $key => $find) {
 
             if (isset($cf7sl_settings['cf7slreplace'][$key])) {
                 $cf7sl_replace = $cf7sl_settings['cf7slreplace'][$key];
@@ -121,23 +125,23 @@ $i = 0;
                 $cf7sl_limit = '-1';
             }
 
-            $current_total_submition = get_total_submition($cf7sl_settings['cf7slfind'][$key]);
+            $current_total_submition = get_total_submition($cf7sl_settings['cf7slformid'][$key]);
             $status = "Remaining submissions = " . ($cf7sl_limit - $current_total_submition) . "</br>Form Status = " . get_form_status($cf7sl_limit - $current_total_submition);
 
             echo "<li id='row$i'>";
 
             echo "<div style='float: left'>";
             echo "<div style='float: left'>";
-            echo "<label for='cf7slfind$i'>Form ID:</label>";
+            echo "<label for='cf7slformid$i'>Form ID:</label>";
             echo "<br />";
-            echo "<select name='cf7slfind[$i]' id='cf7slfind$i' onchange='getFormSelectValue(this);'>";
+            echo "<select name='cf7slformid[$i]' id='cf7slformid$i' onchange='getFormSelectValue(this);'>";
             $forms_list = get_form_list();
             if ($forms_list) {
                 foreach ($forms_list as $key => $value) {
                     if ($find == $value->ID) {
-                        echo "<option  name='cf7slfind[$i]' id='cf7slfind$i' value='" . $value->ID . "' selected>" . $value->post_title . "</option>";
+                        echo "<option  name='cf7slformid[$i]' id='cf7slformid$i' value='" . $value->ID . "' selected>" . $value->post_title . "</option>";
                     } else {
-                        echo "<option  name='cf7slfind[$i]' id='cf7slfind$i' value='" . $value->ID . "'>" . $value->post_title . "</option>";
+                        echo "<option  name='cf7slformid[$i]' id='cf7slformid$i' value='" . $value->ID . "'>" . $value->post_title . "</option>";
                     }
                 }
             }
@@ -300,8 +304,8 @@ function cf7sl_ob_call($buffer)
 {
     // $buffer contains entire page
     $cf7sl_settings = get_option('cf7sl_plugin_settings');
-    if (is_array($cf7sl_settings['cf7slfind'])) {
-        foreach ($cf7sl_settings['cf7slfind'] as $key => $find) {
+    if (is_array($cf7sl_settings['cf7slformid'])) {
+        foreach ($cf7sl_settings['cf7slformid'] as $key => $find) {
             error_log($cf7sl_settings['cf7sllimit'][$key]);
             if (is_form_in_list($buffer, $find) && is_submition_above_limit($find, $cf7sl_settings['cf7sllimit'][$key])) {
                 $buffer = preg_replace("/<form\b[^>]*[class=\"wpcf7\-form\"]\b[^>]*>(.*?)<\/form>/is", $cf7sl_settings['cf7slreplace'][$key], $buffer);
